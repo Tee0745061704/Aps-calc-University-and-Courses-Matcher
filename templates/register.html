@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <!-- Links safely directly back to your active color scheme styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif;background:linear-gradient(200deg ,black 40%,purple 60%);">
+    <div style="background: linear-gradient(200deg ,white 30%,purple 70%); padding: 30px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 350px;">
+        <h2 style="margin-top: 0; text-align: center; color: #333;">Create Profile</h2>
+        <form action="/register" method="POST">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Choose Username:</label>
+                <input type="text" name="username" required style="width: 100%; padding: 10px; box-sizing: border-box; border: 10px solid black; border-radius: 40px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Choose Password:</label>
+                <input type="password" name="password" required style="width: 100%; padding: 10px; box-sizing: border-box; border: 10px solid black; border-radius: 40px;">
+            </div>
+            <button type="submit" style="background-color: black; color: white; border: none; padding: 12px; border-radius: 4px; width: 100%; cursor: pointer; font-weight: bold;">Sign Up & Open App</button>
+        </form>
+        <p style="text-align: center; margin-bottom: 0; font-size: 14px;">Already have an account? <a href="/login">Login here</a></p>
+    </div>
+</body>
+</html>
