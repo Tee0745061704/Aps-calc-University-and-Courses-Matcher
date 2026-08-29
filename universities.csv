@@ -1,0 +1,427 @@
+University,Course,Min_APS,Min_Avg,Req_Math,Req_Science
+University of Cape Town (UCT),Bachelor of Science (BSc),38,75,60,60
+University of Cape Town (UCT),Bachelor of Commerce (BCom),36,70,50,0
+University of Cape Town (UCT),Bachelor of Laws (LLB),42,85,0,0
+University of Cape Town (UCT),Bachelor of Medicine (MBChB),44,90,80,80
+University of Cape Town (UCT),Bachelor of Engineering (BEng),40,80,80,70
+University of Cape Town (UCT),BSc Computer Science,39,78,75,0
+University of Cape Town (UCT),BSc Actuarial Science,43,88,90,0
+University of Cape Town (UCT),BCom Finance,38,75,70,0
+University of Cape Town (UCT),BCom Economics,37,72,65,0
+University of Cape Town (UCT),Bachelor of Architecture,38,75,60,0
+University of the Witwatersrand (Wits),Bachelor of Science (BSc),36,70,60,60
+University of the Witwatersrand (Wits),Bachelor of Commerce (BCom),34,65,50,0
+University of the Witwatersrand (Wits),Bachelor of Laws (LLB),40,80,0,0
+University of the Witwatersrand (Wits),Bachelor of Medicine (MBChB),43,88,80,80
+University of the Witwatersrand (Wits),Bachelor of Engineering (BEng),38,75,80,70
+University of the Witwatersrand (Wits),BSc Computer Science,37,72,75,0
+University of the Witwatersrand (Wits),BSc Information Systems,35,68,65,0
+University of the Witwatersrand (Wits),BCom Accounting,36,70,65,0
+University of the Witwatersrand (Wits),BCom Marketing,32,60,0,0
+University of the Witwatersrand (Wits),Bachelor of Education,30,55,0,0
+University of Pretoria (UP),Bachelor of Science (BSc),35,68,60,60
+University of Pretoria (UP),Bachelor of Commerce (BCom),33,65,50,0
+University of Pretoria (UP),Bachelor of Laws (LLB),38,75,0,0
+University of Pretoria (UP),Bachelor of Medicine (MBChB),42,85,80,80
+University of Pretoria (UP),Bachelor of Engineering (BEng),38,75,75,65
+University of Pretoria (UP),BSc Computer Science,36,70,70,0
+University of Pretoria (UP),BCom Financial Management,34,66,65,0
+University of Pretoria (UP),BCom Human Resource Management,31,60,0,0
+University of Pretoria (UP),Bachelor of Education,29,55,0,0
+University of Pretoria (UP),BSc Veterinary Science,40,80,70,70
+Stellenbosch University,Bachelor of Science (BSc),36,70,60,60
+Stellenbosch University,Bachelor of Commerce (BCom),34,66,50,0
+Stellenbosch University,Bachelor of Laws (LLB),39,78,0,0
+Stellenbosch University,Bachelor of Medicine (MBChB),43,87,80,80
+Stellenbosch University,Bachelor of Engineering (BEng),38,76,75,70
+Stellenbosch University,BSc Computer Science,37,72,70,0
+Stellenbosch University,BCom Economics,35,68,65,0
+Stellenbosch University,BCom Marketing,33,64,0,0
+Stellenbosch University,Bachelor of Education,30,56,0,0
+Stellenbosch University,BSc Agriculture,32,62,50,50
+University of Johannesburg (UJ),Bachelor of Science (BSc),32,62,55,55
+University of Johannesburg (UJ),Bachelor of Commerce (BCom),30,60,50,0
+University of Johannesburg (UJ),Bachelor of Laws (LLB),36,72,0,0
+University of Johannesburg (UJ),Bachelor of Engineering (BEng),34,66,70,60
+University of Johannesburg (UJ),BSc Information Technology,30,60,60,0
+University of Johannesburg (UJ),BSc Computer Science,31,61,65,0
+University of Johannesburg (UJ),BCom Accounting,32,62,0,0
+University of Johannesburg (UJ),BCom Marketing,28,55,0,0
+University of Johannesburg (UJ),Bachelor of Education,27,52,0,0
+University of Johannesburg (UJ),Diploma in Public Relations,26,50,0,0
+University of KwaZulu-Natal (UKZN),Bachelor of Science (BSc),33,65,55,55
+University of KwaZulu-Natal (UKZN),Bachelor of Commerce (BCom),31,60,50,0
+University of KwaZulu-Natal (UKZN),Bachelor of Laws (LLB),37,74,0,0
+University of KwaZulu-Natal (UKZN),Bachelor of Medicine (MBChB),42,85,75,75
+University of KwaZulu-Natal (UKZN),Bachelor of Engineering (BEng),35,68,70,65
+University of KwaZulu-Natal (UKZN),BSc Computer Science,34,66,65,0
+University of KwaZulu-Natal (UKZN),BCom Supply Chain Management,30,58,0,0
+University of KwaZulu-Natal (UKZN),Bachelor of Education,28,54,0,0
+University of KwaZulu-Natal (UKZN),BSc Agriculture,31,60,50,50
+University of KwaZulu-Natal (UKZN),Bachelor of Social Work,29,55,0,0
+North-West University (NWU),Bachelor of Science (BSc),31,60,50,50
+North-West University (NWU),Bachelor of Commerce (BCom),29,58,50,0
+North-West University (NWU),Bachelor of Laws (LLB),35,70,0,0
+North-West University (NWU),Bachelor of Engineering (BEng),33,65,65,60
+North-West University (NWU),BSc Computer Science,32,62,60,0
+North-West University (NWU),BCom Accounting,30,59,0,0
+North-West University (NWU),Bachelor of Education,27,53,0,0
+North-West University (NWU),BSc Nursing,34,66,50,50
+North-West University (NWU),BCom Tourism Management,28,54,0,0
+North-West University (NWU),BA Psychology,30,58,0,0
+University of the Free State (UFS),Bachelor of Science (BSc),30,59,50,50
+University of the Free State (UFS),Bachelor of Commerce (BCom),28,56,50,0
+University of the Free State (UFS),Bachelor of Laws (LLB),34,68,0,0
+University of the Free State (UFS),Bachelor of Medicine (MBChB),41,83,75,75
+University of the Free State (UFS),Bachelor of Engineering (BEng),32,63,65,60
+University of the Free State (UFS),BSc Computer Science,31,60,60,0
+University of the Free State (UFS),BCom Financial Management,29,57,0,0
+University of the Free State (UFS),Bachelor of Education,26,52,0,0
+University of the Free State (UFS),BSc Agriculture,30,58,50,50
+University of the Free State (UFS),BA Communication,28,55,0,0
+Rhodes University,Bachelor of Science (BSc),34,67,60,60
+Rhodes University,Bachelor of Commerce (BCom),32,64,50,0
+Rhodes University,Bachelor of Laws (LLB),38,76,0,0
+Rhodes University,BSc Computer Science,35,69,70,0
+Rhodes University,BCom Economics,33,65,65,0
+Rhodes University,BA Journalism,31,61,0,0
+Rhodes University,Bachelor of Education,29,56,0,0
+Rhodes University,BSc Biology,33,66,50,60
+Rhodes University,BCom Information Systems,32,63,0,0
+Rhodes University,BA English,30,58,0,0
+University of the Western Cape (UWC),Bachelor of Science (BSc),30,58,50,50
+University of the Western Cape (UWC),Bachelor of Commerce (BCom),28,55,50,0
+University of the Western Cape (UWC),Bachelor of Laws (LLB),34,68,0,0
+University of the Western Cape (UWC),Bachelor of Engineering (BEng),32,63,65,60
+University of the Western Cape (UWC),BSc Computer Science,31,60,60,0
+University of the Western Cape (UWC),BCom Accounting,29,57,0,0
+University of the Western Cape (UWC),Bachelor of Education,26,52,0,0
+University of the Western Cape (UWC),BSc Nursing,33,65,50,50
+University of the Western Cape (UWC),BA Psychology,28,55,0,0
+University of the Western Cape (UWC),Diploma in Dental Technology,25,50,0,0
+Nelson Mandela University (NMU),Bachelor of Science (BSc),29,57,50,50
+Nelson Mandela University (NMU),Bachelor of Commerce (BCom),27,54,50,0
+Nelson Mandela University (NMU),Bachelor of Laws (LLB),33,66,0,0
+Nelson Mandela University (NMU),Bachelor of Engineering (BEng),31,61,60,55
+Nelson Mandela University (NMU),BSc Computer Science,30,58,55,0
+Nelson Mandela University (NMU),BCom Marketing,26,52,0,0
+Nelson Mandela University (NMU),Bachelor of Education,25,50,0,0
+Nelson Mandela University (NMU),BSc Marine Biology,32,63,50,60
+Nelson Mandela University (NMU),BCom Human Resource Management,27,53,0,0
+Nelson Mandela University (NMU),BA Drama,25,50,0,0
+University of Fort Hare,Bachelor of Science (BSc),28,55,50,50
+University of Fort Hare,Bachelor of Commerce (BCom),26,52,50,0
+University of Fort Hare,Bachelor of Laws (LLB),32,64,0,0
+University of Fort Hare,BSc Computer Science,29,56,55,0
+University of Fort Hare,BCom Accounting,27,53,0,0
+University of Fort Hare,Bachelor of Education,24,48,0,0
+University of Fort Hare,BSc Agriculture,28,54,50,50
+University of Fort Hare,BA Social Science,25,50,0,0
+University of Fort Hare,BCom Business Management,26,52,0,0
+University of Fort Hare,BSc Nursing,31,60,50,50
+University of Venda,Bachelor of Science (BSc),27,53,50,50
+University of Venda,Bachelor of Commerce (BCom),25,50,50,0
+University of Venda,Bachelor of Laws (LLB),31,62,0,0
+University of Venda,BSc Computer Science,28,54,50,0
+University of Venda,BCom Accounting,26,51,0,0
+University of Venda,Bachelor of Education,23,45,0,0
+University of Venda,BSc Agriculture,27,52,50,50
+University of Venda,BA Communication,24,47,0,0
+University of Venda,BCom Marketing,25,49,0,0
+University of Venda,BSc Environmental Science,28,53,50,50
+Walter Sisulu University,Bachelor of Science (BSc),26,51,50,50
+Walter Sisulu University,Bachelor of Commerce (BCom),24,48,50,0
+Walter Sisulu University,Bachelor of Laws (LLB),30,60,0,0
+Walter Sisulu University,BSc Computer Science,27,52,50,0
+Walter Sisulu University,BCom Accounting,25,49,0,0
+Walter Sisulu University,Bachelor of Education,22,44,0,0
+Walter Sisulu University,BSc Nursing,30,58,50,50
+Walter Sisulu University,Diploma in Public Management,23,45,0,0
+Walter Sisulu University,BCom Business Management,24,47,0,0
+Walter Sisulu University,BA Social Work,25,49,0,0
+University of Limpopo,Bachelor of Science (BSc),28,54,50,50
+University of Limpopo,Bachelor of Commerce (BCom),26,51,50,0
+University of Limpopo,Bachelor of Laws (LLB),32,63,0,0
+University of Limpopo,Bachelor of Medicine (MBChB),40,80,75,75
+University of Limpopo,BSc Computer Science,29,55,50,0
+University of Limpopo,BCom Accounting,27,52,0,0
+University of Limpopo,Bachelor of Education,24,47,0,0
+University of Limpopo,BSc Agriculture,28,53,50,50
+University of Limpopo,BCom Marketing,25,48,0,0
+University of Limpopo,BA Psychology,26,50,0,0
+University of Zululand,Bachelor of Science (BSc),27,52,50,50
+University of Zululand,Bachelor of Commerce (BCom),25,49,50,0
+University of Zululand,Bachelor of Laws (LLB),31,61,0,0
+University of Zululand,BSc Computer Science,28,53,50,0
+University of Zululand,BCom Accounting,26,50,0,0
+University of Zululand,Bachelor of Education,23,45,0,0
+University of Zululand,BSc Agriculture,27,51,50,50
+University of Zululand,BA Communication,24,46,0,0
+University of Zululand,BCom Human Resource Management,25,48,0,0
+University of Zululand,BSc Nursing,29,56,50,50
+Sefako Makgatho Health Sciences University,Bachelor of Medicine (MBChB),41,82,75,75
+Sefako Makgatho Health Sciences University,BSc Nursing,32,64,50,50
+Sefako Makgatho Health Sciences University,BSc Pharmacy,36,71,70,70
+Sefako Makgatho Health Sciences University,BSc Dentistry,38,75,70,70
+Sefako Makgatho Health Sciences University,BSc Occupational Therapy,33,65,50,60
+Sefako Makgatho Health Sciences University,BSc Physiotherapy,34,67,50,60
+Sefako Makgatho Health Sciences University,BSc Radiography,32,63,50,60
+Sefako Makgatho Health Sciences University,BSc Speech Therapy,31,62,50,60
+Sefako Makgatho Health Sciences University,BSc Dietetics,33,65,50,60
+Sefako Makgatho Health Sciences University,BSc Environmental Health,30,59,50,50
+Sol Plaatje University,Bachelor of Science (BSc),28,55,50,50
+Sol Plaatje University,Bachelor of Commerce (BCom),26,52,50,0
+Sol Plaatje University,Bachelor of Education,24,47,0,0
+Sol Plaatje University,BSc Computer Science,29,56,50,0
+Sol Plaatje University,BCom Accounting,27,53,0,0
+Sol Plaatje University,BA Communication,25,49,0,0
+Sol Plaatje University,BSc Data Science,30,58,65,0
+Sol Plaatje University,BCom Tourism Management,26,51,0,0
+Sol Plaatje University,BA Social Work,27,53,0,0
+Sol Plaatje University,BSc Environmental Science,28,54,50,50
+University of Mpumalanga,Bachelor of Science (BSc),27,52,50,50
+University of Mpumalanga,Bachelor of Commerce (BCom),25,49,50,0
+University of Mpumalanga,Bachelor of Education,23,45,0,0
+University of Mpumalanga,BSc Computer Science,28,53,50,0
+University of Mpumalanga,BCom Accounting,26,50,0,0
+University of Mpumalanga,BSc Agriculture,27,51,50,50
+University of Mpumalanga,BCom Supply Chain Management,25,48,0,0
+University of Mpumalanga,BA Development Studies,24,46,0,0
+University of Mpumalanga,BSc Nursing,29,55,50,50
+University of Mpumalanga,Diploma in Hospitality Management,23,44,0,0
+Tshwane University of Technology,Bachelor of Engineering (BEng),31,61,65,60
+Tshwane University of Technology,BSc Information Technology,29,57,60,0
+Tshwane University of Technology,BSc Computer Science,30,58,60,0
+Tshwane University of Technology,Diploma in Accounting,26,51,0,0
+Tshwane University of Technology,Diploma in Marketing,25,49,0,0
+Tshwane University of Technology,Diploma in Human Resource Management,24,47,0,0
+Tshwane University of Technology,Diploma in Electrical Engineering,30,59,60,50
+Tshwane University of Technology,Diploma in Mechanical Engineering,30,58,60,50
+Tshwane University of Technology,Diploma in Civil Engineering,30,57,60,50
+Tshwane University of Technology,Diploma in Graphic Design,25,48,0,0
+University of Technology: Cape Peninsula,Bachelor of Engineering (BEng),30,59,65,60
+University of Technology: Cape Peninsula,BSc Information Technology,28,56,60,0
+University of Technology: Cape Peninsula,BSc Computer Science,29,57,60,0
+University of Technology: Cape Peninsula,Diploma in Accounting,25,50,0,0
+University of Technology: Cape Peninsula,Diploma in Marketing,24,48,0,0
+University of Technology: Cape Peninsula,Diploma in Electrical Engineering,29,58,60,50
+University of Technology: Cape Peninsula,Diploma in Mechanical Engineering,29,57,60,50
+University of Technology: Cape Peninsula,Diploma in Hospitality Management,24,46,0,0
+University of Technology: Cape Peninsula,Diploma in Fashion Design,24,47,0,0
+University of Technology: Cape Peninsula,BSc Biotechnology,31,60,50,60
+University of Technology: Durban,Bachelor of Engineering (BEng),30,58,65,60
+University of Technology: Durban,BSc Information Technology,28,55,60,0
+University of Technology: Durban,BSc Computer Science,29,56,60,0
+University of Technology: Durban,Diploma in Accounting,25,49,0,0
+University of Technology: Durban,Diploma in Marketing,24,47,0,0
+University of Technology: Durban,Diploma in Chemical Engineering,30,58,60,50
+University of Technology: Durban,Diploma in Civil Engineering,29,57,60,50
+University of Technology: Durban,Diploma in Tourism Management,24,46,0,0
+University of Technology: Durban,BSc Biotechnology,31,59,50,60
+University of Technology: Durban,Diploma in Public Relations,25,48,0,0
+University of Technology: Vaal,Bachelor of Engineering (BEng),29,57,65,60
+University of Technology: Vaal,BSc Information Technology,27,54,60,0
+University of Technology: Vaal,BSc Computer Science,28,55,60,0
+University of Technology: Vaal,Diploma in Accounting,24,48,0,0
+University of Technology: Vaal,Diploma in Marketing,23,46,0,0
+University of Technology: Vaal,Diploma in Mechanical Engineering,29,56,60,50
+University of Technology: Vaal,Diploma in Electrical Engineering,29,55,60,50
+University of Technology: Vaal,Diploma in Human Resource Management,23,45,0,0
+University of Technology: Vaal,BSc Biotechnology,30,57,50,60
+University of Technology: Vaal,Diploma in Business Management,24,47,0,0
+University of Technology: Mangosuthu,Bachelor of Engineering (BEng),28,56,65,60
+University of Technology: Mangosuthu,BSc Information Technology,26,53,60,0
+University of Technology: Mangosuthu,Diploma in Accounting,24,47,0,0
+University of Technology: Mangosuthu,Diploma in Marketing,23,45,0,0
+University of Technology: Mangosuthu,Diploma in Civil Engineering,28,55,60,50
+University of Technology: Mangosuthu,Diploma in Mechanical Engineering,28,54,60,50
+University of Technology: Mangosuthu,Diploma in Electrical Engineering,28,53,60,50
+University of Technology: Mangosuthu,Diploma in Human Resource Management,23,44,0,0
+University of Technology: Mangosuthu,Diploma in Public Management,24,46,0,0
+University of Technology: Mangosuthu,BSc Biotechnology,29,56,50,60
+University of Technology: Central,Bachelor of Engineering (BEng),29,57,65,60
+University of Technology: Central,BSc Information Technology,27,54,60,0
+University of Technology: Central,BSc Computer Science,28,55,60,0
+University of Technology: Central,Diploma in Accounting,24,48,0,0
+University of Technology: Central,Diploma in Marketing,23,46,0,0
+University of Technology: Central,Diploma in Mechanical Engineering,29,56,60,50
+University of Technology: Central,Diploma in Electrical Engineering,29,55,60,50
+University of Technology: Central,Diploma in Civil Engineering,29,54,60,50
+University of Technology: Central,BSc Biotechnology,30,57,50,60
+University of Technology: Central,Diploma in Tourism Management,23,45,0,0
+University of Technology: Nelson Mandela,Bachelor of Engineering (BEng),30,58,65,60
+University of Technology: Nelson Mandela,BSc Information Technology,28,55,60,0
+University of Technology: Nelson Mandela,BSc Computer Science,29,56,60,0
+University of Technology: Nelson Mandela,Diploma in Accounting,25,49,0,0
+University of Technology: Nelson Mandela,Diploma in Marketing,24,47,0,0
+University of Technology: Nelson Mandela,Diploma in Mechanical Engineering,30,57,60,50
+University of Technology: Nelson Mandela,Diploma in Electrical Engineering,30,56,60,50
+University of Technology: Nelson Mandela,BSc Marine Biology,31,60,50,60
+University of Technology: Nelson Mandela,Diploma in Hospitality Management,24,46,0,0
+University of Technology: Nelson Mandela,BSc Biotechnology,31,59,50,60
+University of Technology: Tshwane,Bachelor of Engineering (BEng),31,61,65,60
+University of Technology: Tshwane,BSc Information Technology,29,57,60,0
+University of Technology: Tshwane,BSc Computer Science,30,58,60,0
+University of Technology: Tshwane,Diploma in Accounting,26,51,0,0
+University of Technology: Tshwane,Diploma in Marketing,25,49,0,0
+University of Technology: Tshwane,Diploma in Electrical Engineering,30,59,60,50
+University of Technology: Tshwane,Diploma in Mechanical Engineering,30,58,60,50
+University of Technology: Tshwane,Diploma in Civil Engineering,30,57,60,50
+University of Technology: Tshwane,BSc Biotechnology,31,60,50,60
+University of Technology: Tshwane,Diploma in Graphic Design,25,48,0,0
+
+University of Technology: Vaal Triangle,Bachelor of Engineering (BEng),29,57,65,60
+University of Technology: Vaal Triangle,BSc Information Technology,27,54,60,0
+University of Technology: Vaal Triangle,BSc Computer Science,28,55,60,0
+University of Technology: Vaal Triangle,Diploma in Accounting,24,48,0,0
+University of Technology: Vaal Triangle,Diploma in Marketing,23,46,0,0
+University of Technology: Vaal Triangle,Diploma in Mechanical Engineering,29,56,60,50
+University of Technology: Vaal Triangle,Diploma in Electrical Engineering,29,55,60,50
+University of Technology: Vaal Triangle,Diploma in Civil Engineering,29,55,60,50
+University of Technology: Vaal Triangle,BSc Biotechnology,30,57,50,60
+University of Technology: Vaal Triangle,Diploma in Business Management,24,47,0,0
+University of Technology: Mangosuthu,Bachelor of Engineering (BEng),28,56,65,60
+University of Technology: Mangosuthu,BSc Information Technology,26,53,60,0
+University of Technology: Mangosuthu,Diploma in Accounting,24,47,0,0
+University of Technology: Mangosuthu,Diploma in Marketing,23,45,0,0
+University of Technology: Mangosuthu,Diploma in Civil Engineering,28,55,60,50
+University of Technology: Mangosuthu,Diploma in Mechanical Engineering,28,54,60,50
+University of Technology: Mangosuthu,Diploma in Electrical Engineering,28,53,60,50
+University of Technology: Mangosuthu,Diploma in Human Resource Management,23,44,0,0
+University of Technology: Mangosuthu,Diploma in Public Management,24,46,0,0
+University of Technology: Mangosuthu,BSc Biotechnology,29,56,50,60
+University of Technology: Central,Bachelor of Engineering (BEng),29,57,65,60
+University of Technology: Central,BSc Information Technology,27,54,60,0
+University of Technology: Central,BSc Computer Science,28,55,60,0
+University of Technology: Central,Diploma in Accounting,24,48,0,0
+University of Technology: Central,Diploma in Marketing,23,46,0,0
+University of Technology: Central,Diploma in Mechanical Engineering,29,56,60,50
+University of Technology: Central,Diploma in Electrical Engineering,29,55,60,50
+University of Technology: Central,Diploma in Civil Engineering,29,54,60,50
+University of Technology: Central,BSc Biotechnology,30,57,50,60
+University of Technology: Central,Diploma in Tourism Management,23,45,0,0
+University of Technology: Nelson Mandela,Bachelor of Engineering (BEng),30,58,65,60
+University of Technology: Nelson Mandela,BSc Information Technology,28,55,60,0
+University of Technology: Nelson Mandela,BSc Computer Science,29,56,60,0
+University of Technology: Nelson Mandela,Diploma in Accounting,25,49,0,0
+University of Technology: Nelson Mandela,Diploma in Marketing,24,47,0,0
+University of Technology: Nelson Mandela,Diploma in Mechanical Engineering,30,57,60,50
+University of Technology: Nelson Mandela,Diploma in Electrical Engineering,30,56,60,50
+University of Technology: Nelson Mandela,BSc Marine Biology,31,60,50,60
+University of Technology: Nelson Mandela,Diploma in Hospitality Management,24,46,0,0
+University of Technology: Nelson Mandela,BSc Biotechnology,31,59,50,60
+University of Technology: Tshwane,Bachelor of Engineering (BEng),31,61,65,60
+University of Technology: Tshwane,BSc Information Technology,29,57,60,0
+University of Technology: Tshwane,BSc Computer Science,30,58,60,0
+University of Technology: Tshwane,Diploma in Accounting,26,51,0,0
+University of Technology: Tshwane,Diploma in Marketing,25,49,0,0
+University of Technology: Tshwane,Diploma in Electrical Engineering,30,59,60,50
+University of Technology: Tshwane,Diploma in Mechanical Engineering,30,58,60,50
+University of Technology: Tshwane,Diploma in Civil Engineering,30,57,60,50
+University of Technology: Tshwane,BSc Biotechnology,31,60,50,60
+University of Technology: Tshwane,Diploma in Graphic Design,25,48,0,0
+University of Technology: Cape Peninsula,Bachelor of Engineering (BEng),30,59,65,60
+University of Technology: Cape Peninsula,BSc Information Technology,28,56,60,0
+University of Technology: Cape Peninsula,BSc Computer Science,29,57,60,0
+University of Technology: Cape Peninsula,Diploma in Accounting,25,50,0,0
+University of Technology: Cape Peninsula,Diploma in Marketing,24,48,0,0
+University of Technology: Cape Peninsula,Diploma in Electrical Engineering,29,58,60,50
+University of Technology: Cape Peninsula,Diploma in Mechanical Engineering,29,57,60,50
+University of Technology: Cape Peninsula,Diploma in Hospitality Management,24,46,0,0
+University of Technology: Cape Peninsula,Diploma in Fashion Design,24,47,0,0
+University of Technology: Cape Peninsula,BSc Biotechnology,31,60,50,60
+University of Technology: Durban,Bachelor of Engineering (BEng),30,58,65,60
+University of Technology: Durban,BSc Information Technology,28,55,60,0
+University of Technology: Durban,BSc Computer Science,29,56,60,0
+University of Technology: Durban,Diploma in Accounting,25,49,0,0
+University of Technology: Durban,Diploma in Marketing,24,47,0,0
+University of Technology: Durban,Diploma in Chemical Engineering,30,58,60,50
+University of Technology: Durban,Diploma in Civil Engineering,29,57,60,50
+University of Technology: Durban,Diploma in Tourism Management,24,46,0,0
+University of Technology: Durban,BSc Biotechnology,31,59,50,60
+University of Technology: Durban,Diploma in Public Relations,25,48,0,0
+University of South Africa (UNISA),Bachelor of Commerce (BCom),25,50,0,0
+University of South Africa (UNISA),Bachelor of Arts (BA),24,48,0,0
+University of South Africa (UNISA),Bachelor of Science (BSc),27,52,50,50
+University of South Africa (UNISA),Bachelor of Laws (LLB),31,62,0,0
+University of South Africa (UNISA),BCom Accounting,26,51,0,0
+University of South Africa (UNISA),BCom Marketing,25,49,0,0
+University of South Africa (UNISA),Bachelor of Education,23,45,0,0
+University of South Africa (UNISA),BSc Computer Science,28,53,50,0
+University of South Africa (UNISA),BCom Financial Management,26,50,0,0
+University of South Africa (UNISA),BA Psychology,25,48,0,0
+University of South Africa (UNISA),BCom Human Resource Management,25,48,0,0
+University of South Africa (UNISA),BCom Supply Chain Management,25,49,0,0
+University of South Africa (UNISA),BSc Nursing,30,57,50,50
+University of South Africa (UNISA),BSc Agriculture,27,52,50,50
+University of South Africa (UNISA),BA Communication,24,46,0,0
+University of South Africa (UNISA),BCom Economics,26,50,0,0
+University of South Africa (UNISA),BSc Information Systems,27,52,50,0
+University of South Africa (UNISA),Bachelor of Social Work,25,48,0,0
+University of South Africa (UNISA),Diploma in Public Administration,23,44,0,0
+University of South Africa (UNISA),Diploma in Tourism Management,23,45,0,0
+Regent Business School,Bachelor of Commerce (BCom),24,47,0,0
+Regent Business School,BCom Marketing,24,46,0,0
+Regent Business School,BCom Human Resource Management,24,46,0,0
+Regent Business School,BCom Project Management,25,48,0,0
+Regent Business School,BCom Accounting,25,47,0,0
+Regent Business School,Diploma in Business Management,22,43,0,0
+Regent Business School,Diploma in Marketing,22,42,0,0
+Regent Business School,Diploma in Public Relations,22,42,0,0
+Regent Business School,Diploma in Supply Chain Management,23,44,0,0
+Regent Business School,Diploma in Financial Management,23,44,0,0
+Damelin,Bachelor of Commerce (BCom),24,46,0,0
+Damelin,BCom Marketing,24,45,0,0
+Damelin,BCom Business Management,24,45,0,0
+Damelin,Diploma in Accounting,22,42,0,0
+Damelin,Diploma in Human Resource Management,22,42,0,0
+Damelin,Diploma in Public Relations,22,41,0,0
+Damelin,Diploma in Graphic Design,22,41,0,0
+Damelin,Diploma in IT,24,45,45,0
+Damelin,Diploma in Education,22,40,0,0
+Damelin,Diploma in Tourism,22,40,0,0
+Boston City Campus,Bachelor of Commerce (BCom),24,46,0,0
+Boston City Campus,BCom Marketing,24,45,0,0
+Boston City Campus,BCom Financial Management,25,47,0,0
+Boston City Campus,Diploma in Accounting,22,42,0,0
+Boston City Campus,Diploma in Business Management,22,41,0,0
+Boston City Campus,Diploma in Human Resource Management,22,41,0,0
+Boston City Campus,Diploma in IT,24,44,45,0
+Boston City Campus,Diploma in Graphic Design,22,40,0,0
+Boston City Campus,Diploma in Public Relations,22,40,0,0
+Boston City Campus,Diploma in Project Management,23,43,0,0
+Varsity College,Bachelor of Commerce (BCom),26,50,0,0
+Varsity College,BCom Marketing,25,48,0,0
+Varsity College,BCom Financial Management,26,49,0,0
+Varsity College,BCom Business Management,25,48,0,0
+Varsity College,BCom Accounting,26,49,0,0
+Varsity College,BSc Information Technology,27,51,50,0
+Varsity College,BSc Computer Science,28,52,55,0
+Varsity College,BA Psychology,25,47,0,0
+Varsity College,BA Communication,25,47,0,0
+Varsity College,Diploma in Law,27,50,0,0
+IIE MSA,Bachelor of Commerce (BCom),26,50,0,0
+IIE MSA,BCom Marketing,25,48,0,0
+IIE MSA,BCom Financial Management,26,49,0,0
+IIE MSA,BCom Business Management,25,48,0,0
+IIE MSA,BSc Information Technology,27,51,50,0
+IIE MSA,BSc Computer Science,28,52,55,0
+IIE MSA,Bachelor of Engineering (BEng),29,56,65,60
+IIE MSA,BA Psychology,25,47,0,0
+IIE MSA,BA Communication,25,47,0,0
+IIE MSA,Bachelor of Education,24,46,0,0
+University of the North West,Bachelor of Science (BSc),28,54,50,50
+University of the North West,Bachelor of Commerce (BCom),26,51,50,0
+University of the North West,Bachelor of Laws (LLB),32,64,0,0
+University of the North West,Bachelor of Engineering (BEng),30,59,65,60
+University of the North West,BSc Computer Science,29,55,60,0
+University of the North West,BCom Accounting,27,52,0,0
+University of the North West,Bachelor of Education,24,47,0,0
+University of the North West,BSc Nursing,31,60,50,50
+University of the North West,BCom Tourism Management,25,48,0,0
+University of the North West,BA Psychology,26,50,0,0
+University of the North West,BSc Agriculture,28,53,50,50
+University of the North West,BCom Marketing,25,48,0,0
+University of the North West,BCom Human Resource Management,26,50,0,0
+University of the North West,BSc Environmental Science,28,54,50,50
+University of the North West,Bachelor of Social Work,25,48,0,0
