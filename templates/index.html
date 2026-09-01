@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thembas Marks Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>📈 Thembas APS Calculator & Course,University Matcher</h1>
+    <p class="sub-header">Tracker for all 26 South African Public Universities</p>
+    
+    <!-- User Account System Bar -->
+    <div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px 15px; margin: 15px auto 25px auto; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255, 255, 255, 0.2); width: 85%; max-width: 800px; box-sizing: border-box;">
+        <span style="font-size: 15px; color: #fff; font-weight: 500;">
+            👤 Student Ledger Account: <strong style="color: #63b3ed;">{{ session['username'] }}</strong>
+        </span>
+        <a href="/logout" style="color: #ff4d4d; font-weight: bold; text-decoration: none; font-size: 14px; background: rgba(255, 77, 77, 0.2); padding: 6px 12px; border-radius: 4px;">
+            🚪 Logout Account
+        </a>
+    </div>
+
+    <!-- Input Form -->
+    <form method="POST" class="input-form" action="/add">
+        <p>Subject and Percentage Data:</p>
+        <input type="text" name="subject" class="input-text" placeholder="e.g. Mathematics, Physical Sciences" required>
+        <input type="number" name="mark" class="input-number" placeholder="Mark %" min="0" max="100" required>
+        <br><br>
+        <button type="submit" class="btn-submit">Save</button>
+    </form>
+
+    <br><br>
+
+    <!-- Results and Stats Section -->
+    <div class="stats-container">
+        <h3 class="stats-text">{{ result }}</h3>
+    </div>
+
+    <hr>
+
+    <!-- Course Qualification Section -->
+    <h2>🎓 System Matched Institutional Eligibility</h2>
+    <div class="table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Institution</th>
+                    <th style="text-align: left;">Academic Programme Track</th>
+                    <th>Threshold Matrix</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr class="course-row">
+                    <td class="varsity-cell">{{ course.varsity }}</td>
+                    <td class="course-cell">{{ course.name }}</td>
+                    <td class="matrix-cell">Min APS: {{ course.min_aps }}<br>Min Avg: {{ course.min_avg }}%</td>
+                    <td style="text-align: center;">
+                        <span class="status-badge">QUALIFIED ✅</span>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="empty-cell">
+                        No active course matrix thresholds matched. Build your 7-subject profile ledger, fulfill gateway requirements (e.g. Pure Mathematics), or input raw test scores.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <!-- Database Entries Table -->
+    <h2>📚 Active Subject Ledger</h2>
+    <div class="table-wrapper">
+        <table class="ledger-table">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Subject Component</th>
+                    <th>Validated Score</th>
+                    <th>APS Yield</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in subjects %}
+                <tr class="ledger-row">
+                    <td class="subject-cell">{{ row['subject'] }}</td>
+                    <td>{{ row['mark'] }}%</td>
+                    <td style="font-weight: bold;">
+                        {{ '0 (LO Excluded)' if row['level'] == 0 else 'Level ' ~ row['level'] }}
+                    </td>
+                    <td>
+                        <form method="POST" action="/delete/{{ row['id'] }}" style="margin:0;">
+                            <button type="submit" class="btn-delete">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="ledger-empty">No subject profiles currently found in database ledger.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+      </html>
+      
