@@ -4,7 +4,6 @@ DB_FILE = "marks_database.db"
 
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE)
-    # CRITICAL: Enforce Foreign Key relationships on every connection
     conn.execute("PRAGMA foreign_keys = ON;")
     conn.row_factory = sqlite3.Row
     return conn
@@ -12,8 +11,6 @@ def get_db_connection():
 def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
-    
-    # 1. Create Users Account Table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,8 +18,6 @@ def init_db():
             password TEXT NOT NULL
         )
     ''')
-    
-    # 2. Create Subjects Table with Cascade on Delete
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS subjects (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,8 +28,29 @@ def init_db():
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )
     ''')
-    
-    # OPTIMISATION: Speed up profile lookups during index data loops
+    conn.commit()
+    conn.close()
+
+def add_user(username, password_hash):
+    conn = get_db_connection()
+    try:
+        conn.execute("INSERT INTO users (username, password) VALUES (?,?)", (username, password_hash))
+        conn.commit()
+        return True
+    except:
+        return False
+    finally:
+        conn.close()
+
+def check_user(username):
+    conn = get_db_connection()
+    user = conn.execute("SELECT * FROM users WHERE username =?", (username,)).fetchone()
+    conn.close()
+    return user
+
+if __name__ == "__main__":
+    init_db()
+    print("Database initialized")    # OPTIMISATION: Speed up profile lookups during index data loops
     cursor.execute('''
         CREATE INDEX IF NOT EXISTS idx_subjects_user_id ON subjects (user_id);
     ''')
