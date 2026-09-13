@@ -1,40 +1,81 @@
-import csv
 import os
-import sqlite3
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from dotenv import load_dotenv
+from database import init_db, add_user, check_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from database import init_db, get_db_connection
+import csv
+
+# Load.env locally, Render will use Environment Variable
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "super_secret_south_africa_varsity_key_123"
+app.secret_key = os.getenv('SECRET_KEY')
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CSV_FILE_PATH = os.path.join(BASE_DIR, 'universities.csv')
+# If no secret found, use fallback (prevents crash on Render)
+if not app.secret_key:
+    app.secret_key = 'fallback-dev-key-change-in-render'
 
-def load_courses_from_csv():
-    courses_list = []
-    if not os.path.exists(CSV_FILE_PATH):
-        return courses_list
-    with open(CSV_FILE_PATH, mode='r', encoding='utf-8') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            try:
-                courses_list.append({
-                    "varsity": row['University'].strip(),
-                    "name": row['Course'].strip(),
-                    "min_aps": int(row['Min_APS']),
-                    "min_avg": int(row['Min_Avg']),
-                    "req_math": int(row['Req_Math']),
-                    "req_sci": int(row['Req_Science'])
-                })
-            except (ValueError, KeyError):
-                continue
-    return courses_list
+# Init database on start
+init_db()
 
-def calculate_aps(mark):
-    if mark >= 80: return 7
-    if mark >= 70: return 6
-    if mark >= 60: return 5
+def load_universities():
+    universities = []
+    try:
+        with open('universities.csv', newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                universities.append(row)
+    except FileNotFoundError:
+        pass
+    return universities
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = check_user(username)
+        if user and check_password_hash(user[2], password):
+            session['user'] = username
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password')
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if check_user(username):
+            flash('Username already exists')
+        else:
+            hashed = generate_password_hash(password)
+            add_user(username, hashed)
+            flash('Registered! Please login')
+            return redirect(url_for('login'))
+    return render_template('register.html')
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+
+    universities = load_universities()
+    results = []
+    aps = 0
+
+    if request.method == 'POST':
+        # Get marks from form
+        try:
+            marks = {
+                'maths': int(request.form.get('maths', 0)),
+                'english': int(request.form.get('english', 0)),
+                'subject3    if mark >= 60: return 5
     if mark >= 50: return 4
     if mark >= 40: return 3
     if mark >= 30: return 2
