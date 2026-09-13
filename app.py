@@ -66,6 +66,38 @@ def logout():
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
+    app.run(debug=True)        if check_user(username):
+            flash('Username already exists')
+        else:
+            hashed = generate_password_hash(password)
+            if add_user(username, hashed):
+                flash('Registered! Please login')
+                return redirect(url_for('login'))
+            else:
+                flash('Failed to register')
+    return render_template('register.html')
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    aps = 0
+    if request.method == 'POST':
+        try:
+            marks = [int(request.form.get(k,0) or 0) for k in ['maths','english','subject3','subject4','subject5','subject6']]
+            def pts(m):
+                return 7 if m>=80 else 6 if m>=70 else 5 if m>=60 else 4 if m>=50 else 3 if m>=40 else 2 if m>=30 else 1
+            aps = sum(pts(x) for x in marks)
+        except:
+            flash('Enter valid numbers')
+    return render_template('dashboard.html', aps=aps, user=session.get('user'), universities=[])
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+if __name__ == '__main__':
     app.run(debug=True)def login():
     if request.method == 'POST':
         username = request.form.get('username')
