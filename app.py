@@ -3,31 +3,13 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from dotenv import load_dotenv
 from database import init_db, add_user, check_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import csv
 
-# Load.env locally, Render will use Environment Variable
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY', 'dev-fallback-key-123')
 
-# If no secret found, use fallback (prevents crash on Render)
-if not app.secret_key:
-    app.secret_key = 'fallback-dev-key-change-in-render'
-
-# Init database on start
 init_db()
-
-def load_universities():
-    universities = []
-    try:
-        with open('universities.csv', newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                universities.append(row)
-    except FileNotFoundError:
-        pass
-    return universities
 
 @app.route('/')
 def home():
@@ -35,6 +17,56 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = check_user(username)
+        # user[2] is password hash
+        if user and check_password_hash(user['password'], password):
+            session['user'] = username
+            session['user_id'] = user['id']
+            return redirect(url_for('dashboard'))
+        flash('Invalid username or password')
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if check_user(username):
+            flash('Username already exists')
+        else:
+            hashed = generate_password_hash(password)
+            if add_user(username, hashed):
+                flash('Registered! Please login')
+                return redirect(url_for('login'))
+            else:
+                flash('Failed to register')
+    return render_template('register.html')
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    aps = 0
+    if request.method == 'POST':
+        try:
+            marks = [int(request.form.get(k,0) or 0) for k in ['maths','english','subject3','subject4','subject5','subject6']]
+            def pts(m):
+                return 7 if m>=80 else 6 if m>=70 else 5 if m>=60 else 4 if m>=50 else 3 if m>=40 else 2 if m>=30 else 1
+            aps = sum(pts(x) for x in marks)
+        except:
+            flash('Enter valid numbers')
+    return render_template('dashboard.html', aps=aps, user=session.get('user'), universities=[])
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+if __name__ == '__main__':
+    app.run(debug=True)def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
