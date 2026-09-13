@@ -1,40 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thembas Marks Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Thembas Tracker</title>
 </head>
-<body>
-    <h1>📈 Thembas APS Calculator & Course,University Matcher</h1>
-    <p class="sub-header">Tracker for all 26 South African Public Universities</p>
-    
-    <!-- User Account System Bar -->
-    <div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px 15px; margin: 15px auto 25px auto; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255, 255, 255, 0.2); width: 85%; max-width: 800px; box-sizing: border-box;">
-        <span style="font-size: 15px; color: #fff; font-weight: 500;">
-            👤 Student Ledger Account: <strong style="color: #63b3ed;">{{ session['username'] }}</strong>
-        </span>
-        <a href="/logout" style="color: #ff4d4d; font-weight: bold; text-decoration: none; font-size: 14px; background: rgba(255, 77, 77, 0.2); padding: 6px 12px; border-radius: 4px;">
-            🚪 Logout Account
-        </a>
-    </div>
+<body style="margin:0; background:#08080a; color:#ddd; font-family:monospace; padding:20px;">
 
-    <!-- Input Form -->
-    <form method="POST" class="input-form" action="/add">
-        <p>Subject and Percentage Data:</p>
-        <input type="text" name="subject" class="input-text" placeholder="e.g. Mathematics, Physical Sciences" required>
-        <input type="number" name="mark" class="input-number" placeholder="Mark %" min="0" max="100" required>
-        <br><br>
-        <button type="submit" class="btn-submit">Save</button>
-    </form>
+<h1 style="text-align:center; color:#fff;">THEMBAS TRACKER</h1>
+<p style="text-align:center; color:#00ffff; font-size:12px;">APS TRACKER // DARK TECH EDITION</p>
+<p style="text-align:center; font-size:12px;">USER: {{ session.get('username','STUDENT') }} | <a href="/logout" style="color:#ff5555;">LOGOUT</a></p>
 
-    <br><br>
+<div style="max-width:700px; margin:20px auto; background:#141417; border:1px solid #222; padding:20px; border-radius:10px; border-top:1px solid #a855f7;">
+<form action="/add" method="POST" style="display:flex; gap:10px;">
+<input type="text" name="subject" placeholder="Subject" required style="flex:2; padding:10px; background:#0a0a0c; border:1px solid #333; color:#fff; border-radius:5px;">
+<input type="number" name="mark" placeholder="%" required min="0" max="100" style="flex:1; padding:10px; background:#0a0a0c; border:1px solid #333; color:#fff; border-radius:5px;">
+<button type="submit" style="flex:1; background:#00ffff; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">ADD</button>
+</form>
+</div>
 
-    <!-- Results and Stats Section -->
-    <div class="stats-container">
-        <h3 class="stats-text">{{ result }}</h3>
-    </div>
+<div style="max-width:900px; margin:20px auto; background:#141417; border:1px solid #222; padding:20px; border-radius:10px; border-top:1px solid #00ffff;">
+<pre style="white-space:pre-line; color:#b8f5ff; margin:0;">{{ result }}</pre>
+</div>
+
+<div style="max-width:1100px; margin:30px auto;">
+<h3 style="text-align:center; color:#fff;">QUALIFIED COURSES</h3>
+<table style="width:100%; background:#141417; border-collapse:collapse; border-radius:10px; overflow:hidden;">
+<tr style="background:#0a0a0c;"><th style="padding:10px; text-align:left; color:#666; font-size:11px;">VARSITY</th><th style="padding:10px; text-align:left; color:#666; font-size:11px;">COURSE</th><th style="padding:10px; color:#666; font-size:11px;">REQ</th></tr>
+{% for course in courses %}
+<tr style="border-bottom:1px solid #222;"><td style="padding:10px; color:#a855f7;">{{ course.varsity }}</td><td style="padding:10px;">{{ course.name }}</td><td style="padding:10px; font-size:12px; color:#888;">APS {{ course.min_aps }} / AVG {{ course.min_avg }}%</td></tr>
+{% else %}
+<tr><td colspan="3" style="padding:20px; text-align:center; color:#ff6b6b;">NO COURSES - ADD MORE SUBJECTS</td></tr>
+{% endfor %}
+</table>
+</div>
+
+<div style="max-width:900px; margin:30px auto;">
+<h3 style="text-align:center; color:#fff;">ACADEMIC LEDGER</h3>
+<table style="width:100%; background:#141417; border-collapse:collapse; border-radius:10px; overflow:hidden;">
+<tr style="background:#0a0a0c;"><th style="padding:10px; text-align:left; color:#666; font-size:11px;">SUBJECT</th><th style="padding:10px; color:#666; font-size:11px;">MARK</th><th style="padding:10px; color:#666; font-size:11px;">LEVEL</th><th style="padding:10px; color:#666; font-size:11px;">ACTION</th></tr>
+{% for row in subjects %}
+<tr style="border-bottom:1px solid #222;"><td style="padding:10px;">{{ row['subject'] }}</td><td style="padding:10px; color:#00ffff;">{{ row['mark'] }}%</td><td style="padding:10px; color:#a855f7;">{{ row['level'] }}</td><td style="padding:10px;"><form action="{{ url_for('delete', id=row['id']) }}" method="POST"><button type="submit" style="background:#331111; border:1px solid #552222; color:#ff6b6b; padding:4px 8px; border-radius:4px; cursor:pointer;">DELETE</button></form></td></tr>
+{% else %}
+<tr><td colspan="4" style="padding:20px; text-align:center; color:#555;">EMPTY</td></tr>
+{% endfor %}
+</table>
+</div>
+
+</body>
+    </html>    </div>
 
     <hr>
 
