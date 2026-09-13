@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login - Thembas System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=JetBrains+Mono:wght@400&display=swap');
+    </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; background: linear-gradient(200deg, orange 50%, red 70%);">
-    <div style="background: linear-gradient(200deg, yellow 50%, #FFDAB9 70%); padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 350px;">
-        <h2 style="margin-top: 0; text-align: center; color: #333;">Student Login</h2>
-        <form action="/login" method="POST">
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Username:</label>
-                <input type="text" name="username" required style="width: 100%; padding: 10px; box-sizing: border-box; border: 2px solid crimson; border-radius: 40px; outline: none; color: #000; background: #fff;">
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; margin:0; background:#050508; overflow:hidden; perspective:1500px; font-family:'JetBrains Mono', monospace;">
+
+    <!-- Techy BG -->
+    <div style="position:absolute; inset:0; background: radial-gradient(circle at 20% 30%, rgba(0,255,255,0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(120,0,255,0.15), transparent 40%), linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px; z-index:0;"></div>
+    <div style="position:absolute; width:600px; height:600px; background: radial-gradient(circle, rgba(0,255,255,0.2) 0%, transparent 70%); filter:blur(60px); top:10%; left:20%; animation: float 6s ease-in-out infinite;"></div>
+
+    <div style="position:relative; z-index:1; background: linear-gradient(180deg, rgba(30,30,35,0.9), rgba(15,15,18,0.95)); padding:40px 35px; border-radius:20px; width:100%; max-width:380px; border:1px solid rgba(255,255,255,0.08); box-shadow: 0 0 0 1px rgba(0,255,255,0.1) inset, 0 30px 60px rgba(0,0,0,0.9), 0 0 80px rgba(0,255,255,0.08); transform: rotateX(8deg) rotateY(-8deg) translateZ(0); transform-style:preserve-3d; transition: all 0.6s cubic-bezier(0.23,1,0.32,1);" onmouseover="this.style.transform='rotateX(0deg) rotateY(0deg) translateZ(50px)'; this.style.boxShadow='0 0 0 1px rgba(0,255,255,0.2) inset, 0 40px 80px rgba(0,0,0,1), 0 0 120px rgba(0,255,255,0.15)'" onmouseout="this.style.transform='rotateX(8deg) rotateY(-8deg) translateZ(0)'; this.style.boxShadow='0 0 0 1px rgba(0,255,255,0.1) inset, 0 30px 60px rgba(0,0,0,0.9), 0 0 80px rgba(0,255,255,0.08)'">
+
+        <div style="position:absolute; top:-1px; left:20%; right:20%; height:1px; background: linear-gradient(90deg, transparent, #00ffff, transparent); box-shadow: 0 0 10px #00ffff;"></div>
+
+        <div style="text-align:center; margin-bottom:30px; transform: translateZ(30px);">
+            <div style="width:60px; height:60px; margin:0 auto 15px; background: linear-gradient(145deg, #222, #111); border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1); font-family:'Orbitron', sans-serif; color:#00ffff; font-size:22px; text-shadow:0 0 10px #00ffff;">T</div>
+            <h2 style="margin:0; font-family:'Orbitron', sans-serif; color:#fff; letter-spacing:3px; font-size:18px; text-transform:uppercase;">SYSTEM LOGIN</h2>
+            <p style="margin:8px 0 0; color:#00ffff; font-size:10px; letter-spacing:4px; opacity:0.7;">THEMBAS APS // VER 2.0</p>
+        </div>
+        
+        <form action="/login" method="POST" style="transform: translateZ(20px);">
+            <div style="margin-bottom:20px;">
+                <label style="display:block; margin-bottom:8px; color:#666; font-size:10px; letter-spacing:2px;">> USERNAME_ID</label>
+                <input type="text" name="username" required style="width:100%; padding:14px 16px; box-sizing:border-box; background: rgba(0,0,0,0.6); border:1px solid #222; border-left:2px solid #00ffff; border-radius:4px; color:#fff; font-family:'JetBrains Mono', monospace; outline:none; box-shadow: inset 0 2px 10px rgba(0,0,0,1); transition:0.3s;" onfocus="this.style.borderColor='#00ffff'; this.style.boxShadow='inset 0 2px 10px rgba(0,0,0,1), 0 0 15px rgba(0,255,255,0.2)'" onblur="this.style.borderColor='#222'; this.style.borderLeftColor='#00ffff'">
             </div>
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Password:</label>
-                <input type="password" name="password" required style="width: 100%; padding: 10px; box-sizing: border-box; border: 2px solid crimson; border-radius: 40px; outline: none; color: #000; background: #fff;">
+            <div style="margin-bottom:30px;">
+                <label style="display:block; margin-bottom:8px; color:#666; font-size:10px; letter-spacing:2px;">> ACCESS_KEY</label>
+                <input type="password" name="password" required style="width:100%; padding:14px 16px; box-sizing:border-box; background: rgba(0,0,0,0.6); border:1px solid #222; border-left:2px solid #a855f7; border-radius:4px; color:#fff; font-family:'JetBrains Mono', monospace; outline:none; box-shadow: inset 0 2px 10px rgba(0,0,0,1);">
             </div>
-            <button type="submit" style="background: linear-gradient(200deg, orange 50%, red 70%); color: white; border: none; padding: 12px; border-radius: 40px; width: 100%; cursor: pointer; font-weight: bold;">Sign In</button>
+            <button type="submit" style="width:100%; padding:15px; background: linear-gradient(90deg, #00ffff 0%, #a855f7 100%); border:none; border-radius:4px; color:#000; font-family:'Orbitron', sans-serif; font-weight:700; letter-spacing:2px; font-size:13px; cursor:pointer; box-shadow: 0 0 20px rgba(0,255,255,0.3), 0 10px 20px rgba(0,0,0,0.5); transform: translateZ(10px); transition:0.2s;">[ INITIALIZE_SESSION ]</button>
         </form>
-        <p style="text-align: center; margin-bottom: 0; font-size: 14px; margin-top: 15px; color: #333;">New student? <a href="/register" style="color: crimson; font-weight: bold;">Register profile here</a></p>
+        <p style="text-align:center; margin:25px 0 0; font-size:11px; color:#555; transform: translateZ(10px);">NEW NODE? <a href="/register" style="color:#00ffff; text-decoration:none; border-bottom:1px dashed rgba(0,255,255,0.3);">CREATE_ID</a></p>
     </div>
 </body>
-</html>
+    </html>
