@@ -1,11 +1,11 @@
 import csv
 import os
-import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from database import init_db, get_db_connection
 
 app = Flask(__name__)
+# Required key to sign browser session cookies securely
 app.secret_key = "super_secret_south_africa_varsity_key_123"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -40,11 +40,6 @@ def calculate_aps(mark):
     if mark >= 30: return 2
     return 1
 
-def is_life_orientation(subject_name):
-    """Helper function to cleanly standardise South African Life Orientation matching rules."""
-    name_clean = subject_name.strip().lower()
-    return "life orientation" in name_clean or name_clean == "lo"
-
 # --- AUTHENTICATION ROUTES ---
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -63,6 +58,7 @@ def register():
             conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
             conn.commit()
             
+            # Automatically sign them in after successful registration
             user = conn.execute("SELECT id FROM users WHERE username = ?", (username,)).fetchone()
             session['user_id'] = user['id']
             session['username'] = username
@@ -102,17 +98,23 @@ def logout():
 
 @app.route('/')
 def index():
+    # Redirect to login page if user isn't authenticated yet
     if 'user_id' not in session:
         return redirect(url_for('login'))
         
     conn = get_db_connection()
+    # MODIFIED: Only pull subjects belonging to the currently logged-in user ID
     subjects = conn.execute("SELECT id, subject, mark, level FROM subjects WHERE user_id = ?", (session['user_id'],)).fetchall()
     conn.close()
 
     total_marks = sum(row['mark'] for row in subjects)
     count = len(subjects)
     avg_mark = total_marks / count if count > 0 else 0
-    total_aps = sum(row['level'] for row in subjects if not is_life_orientation(row['subject']))
+    
+    total_aps = sum(
+        row['level'] for row in subjects 
+        if "life orientation" not in row['subject'].lower()
+    )
 
     math_mark = 0
     sci_mark = 0
@@ -150,9 +152,10 @@ def add():
         
     subject = request.form['subject']
     mark = int(request.form['mark'])
-    level = 0 if is_life_orientation(subject) else calculate_aps(mark)
+    level = 0 if "life orientation" in subject.lower() else calculate_aps(mark)
 
     conn = get_db_connection()
+    # MODIFIED: Insert user_id so it links directly to the logged-in user account session
     conn.execute("INSERT INTO subjects (user_id, subject, mark, level) VALUES (?, ?, ?, ?)", 
                  (session['user_id'], subject, mark, level))
     conn.commit()
@@ -165,6 +168,7 @@ def delete(id):
         return redirect(url_for('login'))
         
     conn = get_db_connection()
+    # Safety verification: ensure users can only delete their own marks record rows
     conn.execute("DELETE FROM subjects WHERE id = ? AND user_id = ?", (id, session['user_id']))
     conn.commit()
     conn.close()
@@ -173,6 +177,4 @@ def delete(id):
 if __name__ == '__main__':
     init_db()
     app.run(debug=True)
-else:
-    # Safely init database on production bootup via Gunicorn
-    init_db()
+        
