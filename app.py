@@ -1,4 +1,5 @@
 import os
+import csv
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from dotenv import load_dotenv
 from database import init_db, add_user, check_user
@@ -7,21 +8,49 @@ from werkzeug.security import generate_password_hash, check_password_hash
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'dev-fallback-key-123')
+# Works even if SECRET_KEY env is missing on Render
+app.secret_key = os.getenv('SECRET_KEY', 'dev-key-aps-2026-secure')
 
+# Initialize DB on startup
 init_db()
+
+# Load universities - safe if file missing
+def load_universities():
+    unis = []
+    try:
+        if os.path.exists('universities.csv'):
+            with open('universities.csv', newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    unis.append(row)
+    except Exception as e:
+        print(f"Universities load error: {e}")
+    return unis
+
+UNIVERSITIES = load_universities()
+
+def calculate_aps_point(mark):
+    """SA APS Points"""
+    if mark >= 80: return 7
+    if mark >= 70: return 6
+    if mark >= 60: return 5
+    if mark >= 50: return 4
+    if mark >= 40: return 3
+    if mark >= 30: return 2
+    return 1
 
 @app.route('/')
 def home():
+    if 'user' in session:
+        return redirect(url_for('dashboard'))
     return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
         user = check_user(username)
-        # user[2] is password hash
         if user and check_password_hash(user['password'], password):
             session['user'] = username
             session['user_id'] = user['id']
@@ -32,252 +61,74 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if check_user(username):
-            flash('Username already exists')
-        else:
-            hashed = generate_password_hash(password)
-            if add_user(username, hashed):
-                flash('Registered! Please login')
-                return redirect(url_for('login'))
-            else:
-                flash('Failed to register')
-    return render_template('register.html')
-
-@app.route('/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    if 'user' not in session:
-        return redirect(url_for('login'))
-    aps = 0
-    if request.method == 'POST':
-        try:
-            marks = [int(request.form.get(k,0) or 0) for k in ['maths','english','subject3','subject4','subject5','subject6']]
-            def pts(m):
-                return 7 if m>=80 else 6 if m>=70 else 5 if m>=60 else 4 if m>=50 else 3 if m>=40 else 2 if m>=30 else 1
-            aps = sum(pts(x) for x in marks)
-        except:
-            flash('Enter valid numbers')
-    return render_template('dashboard.html', aps=aps, user=session.get('user'), universities=[])
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
-
-if __name__ == '__main__':
-    app.run(debug=True)        if check_user(username):
-            flash('Username already exists')
-        else:
-            hashed = generate_password_hash(password)
-            if add_user(username, hashed):
-                flash('Registered! Please login')
-                return redirect(url_for('login'))
-            else:
-                flash('Failed to register')
-    return render_template('register.html')
-
-@app.route('/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    if 'user' not in session:
-        return redirect(url_for('login'))
-    aps = 0
-    if request.method == 'POST':
-        try:
-            marks = [int(request.form.get(k,0) or 0) for k in ['maths','english','subject3','subject4','subject5','subject6']]
-            def pts(m):
-                return 7 if m>=80 else 6 if m>=70 else 5 if m>=60 else 4 if m>=50 else 3 if m>=40 else 2 if m>=30 else 1
-            aps = sum(pts(x) for x in marks)
-        except:
-            flash('Enter valid numbers')
-    return render_template('dashboard.html', aps=aps, user=session.get('user'), universities=[])
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
-
-if __name__ == '__main__':
-    app.run(debug=True)def login():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        user = check_user(username)
-        if user and check_password_hash(user[2], password):
-            session['user'] = username
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Invalid username or password')
-    return render_template('login.html')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        if check_user(username):
-            flash('Username already exists')
-        else:
-            hashed = generate_password_hash(password)
-            add_user(username, hashed)
-            flash('Registered! Please login')
-            return redirect(url_for('login'))
-    return render_template('register.html')
-
-@app.route('/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    if 'user' not in session:
-        return redirect(url_for('login'))
-
-    universities = load_universities()
-    results = []
-    aps = 0
-
-    if request.method == 'POST':
-        # Get marks from form
-        try:
-            marks = {
-                'maths': int(request.form.get('maths', 0)),
-                'english': int(request.form.get('english', 0)),
-                'subject3    if mark >= 60: return 5
-    if mark >= 50: return 4
-    if mark >= 40: return 3
-    if mark >= 30: return 2
-    return 1
-
-def is_life_orientation(subject_name):
-    """Helper function to cleanly standardise South African Life Orientation matching rules."""
-    name_clean = subject_name.strip().lower()
-    return "life orientation" in name_clean or name_clean == "lo"
-
-# --- AUTHENTICATION ROUTES ---
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form['username'].strip()
-        password = request.form['password']
-        
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
         if not username or not password:
-            return "Please fill in all fields", 400
-            
-        hashed_password = generate_password_hash(password)
-        
-        conn = get_db_connection()
-        try:
-            conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
-            conn.commit()
-            
-            user = conn.execute("SELECT id FROM users WHERE username = ?", (username,)).fetchone()
-            session['user_id'] = user['id']
-            session['username'] = username
-            conn.close()
-            return redirect(url_for('index'))
-        except sqlite3.IntegrityError:
-            conn.close()
-            return "Username already exists! Go back and choose another.", 400
-            
+            flash('Username and password required')
+        elif check_user(username):
+            flash('Username already exists - please login')
+        else:
+            hashed = generate_password_hash(password)
+            if add_user(username, hashed):
+                flash('Registration successful! Please login')
+                return redirect(url_for('login'))
+            else:
+                flash('Failed to register - try again')
     return render_template('register.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    
+    aps = 0
+    marks = {}
+    matched_unis = []
+    
     if request.method == 'POST':
-        username = request.form['username'].strip()
-        password = request.form['password']
-        
-        conn = get_db_connection()
-        user = conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
-        conn.close()
-        
-        if user and check_password_hash(user['password'], password):
-            session['user_id'] = user['id']
-            session['username'] = username
-            return redirect(url_for('index'))
-        
-        return "Invalid credentials! Go back and try again.", 401
-        
-    return render_template('login.html')
+        try:
+            # Get marks from form
+            maths = int(request.form.get('maths', 0) or 0)
+            english = int(request.form.get('english', 0) or 0)
+            sub3 = int(request.form.get('subject3', 0) or 0)
+            sub4 = int(request.form.get('subject4', 0) or 0)
+            sub5 = int(request.form.get('subject5', 0) or 0)
+            sub6 = int(request.form.get('subject6', 0) or 0)
+            
+            all_marks = [maths, english, sub3, sub4, sub5, sub6]
+            marks = {
+                'maths': maths, 'english': english,
+                'subject3': sub3, 'subject4': sub4,
+                'subject5': sub5, 'subject6': sub6
+            }
+            
+            # Calculate APS (6 subjects)
+            aps = sum(calculate_aps_point(m) for m in all_marks)
+            
+            # Filter universities if CSV exists
+            if UNIVERSITIES:
+                for uni in UNIVERSITIES:
+                    try:
+                        req_aps = int(uni.get('aps', uni.get('APS', 0)) or 0)
+                        if aps >= req_aps:
+                            matched_unis.append(uni)
+                    except:
+                        pass
+            
+        except ValueError:
+            flash('Please enter valid numbers (0-100)')
+    
+    return render_template('dashboard.html', 
+                         aps=aps, 
+                         marks=marks,
+                         user=session.get('user'), 
+                         universities=matched_unis or UNIVERSITIES)
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('login'))
 
-# --- PROTECTED PROFILE APPLICATION ROUTES ---
-
-@app.route('/')
-def index():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-        
-    conn = get_db_connection()
-    subjects = conn.execute("SELECT id, subject, mark, level FROM subjects WHERE user_id = ?", (session['user_id'],)).fetchall()
-    conn.close()
-
-    total_marks = sum(row['mark'] for row in subjects)
-    count = len(subjects)
-    avg_mark = total_marks / count if count > 0 else 0
-    total_aps = sum(row['level'] for row in subjects if not is_life_orientation(row['subject']))
-
-    math_mark = 0
-    sci_mark = 0
-    for row in subjects:
-        subj_name = row['subject'].lower()
-        if "mathematics" in subj_name and "literacy" not in subj_name:
-            math_mark = max(math_mark, row['mark'])
-        if "physical science" in subj_name or "life science" in subj_name:
-            sci_mark = max(sci_mark, row['mark'])
-
-    result_text = (
-        f"📊 Profile Stats ({session['username']}):\n"
-        f"• Total Registered NSC Subjects: {count} / 7 Recommended\n"
-        f"• Group Academic Average: {avg_mark:.2f}%\n"
-        f"• Active Entry APS Score (Excl. LO): {total_aps} Points\n"
-        f"• Pure Mathematics Tracker: {math_mark}% | Science Gateway Tracker: {sci_mark}%"
-    )
-
-    qualified_courses = []
-    if count > 0:
-        csv_courses = load_courses_from_csv()
-        for course in csv_courses:
-            if (total_aps >= course["min_aps"] and 
-                avg_mark >= course["min_avg"] and 
-                math_mark >= course["req_math"] and 
-                sci_mark >= course["req_sci"]):
-                qualified_courses.append(course)
-
-    return render_template('index.html', subjects=subjects, result=result_text, courses=qualified_courses)
-
-@app.route('/add', methods=['POST'])
-def add():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-        
-    subject = request.form['subject']
-    mark = int(request.form['mark'])
-    level = 0 if is_life_orientation(subject) else calculate_aps(mark)
-
-    conn = get_db_connection()
-    conn.execute("INSERT INTO subjects (user_id, subject, mark, level) VALUES (?, ?, ?, ?)", 
-                 (session['user_id'], subject, mark, level))
-    conn.commit()
-    conn.close()
-    return redirect(url_for('index'))
-
-@app.route('/delete/<int:id>', methods=['POST'])
-def delete(id):
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-        
-    conn = get_db_connection()
-    conn.execute("DELETE FROM subjects WHERE id = ? AND user_id = ?", (id, session['user_id']))
-    conn.commit()
-    conn.close()
-    return redirect(url_for('index'))
-
 if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
-else:
-    # Safely init database on production bootup via Gunicorn
-    init_db()
+    # For local testing only - Render uses gunicorn
+    app.run(debug=True, host='0.0.0.0', port=5000)
